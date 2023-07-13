@@ -1,0 +1,23 @@
+version: "3.8"
+
+
+# For local testing.
+services:
+  target-finder:
+    image: target-finder
+    restart: always
+    ports:
+      - 8080:8080
+  target-router:
+    image: target-router
+    restart: always
+    depends_on:
+      - target-finder
+    ports:
+      - 4040:4040
+    environment:
+      - TOKENS=5
+      - REQUESTS=20
+      - TARGET=42
+      - TARGET_FINDER_LINK=http://target-finder:8080
+      - DEBUG_RATE_LIMITS=false
