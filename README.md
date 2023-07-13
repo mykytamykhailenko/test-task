@@ -86,3 +86,8 @@ You may want to look into the `docker-compose.yaml` to check and modify envs.
 ## Technology stack
 
 ZIO, ZIO-HTTP, Circe
+
+## Possible Improvements
+
+- The rate limiter must be implemented as middleware.
+
